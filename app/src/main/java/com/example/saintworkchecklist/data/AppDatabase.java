@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {Item.class}, version = 6, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    private static final String DATABASE_NAME = "data.sqlite";
+    private static final String DATABASE_NAME = "data.sqlite";//change your SQLite file name and should be saved in assets folder
     private static volatile AppDatabase instance;
 
     public static synchronized AppDatabase getInstance(Context context) {
