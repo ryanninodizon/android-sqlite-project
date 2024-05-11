@@ -2,6 +2,8 @@
 
 This simple project has CRUD functionality and uses Room-Jetpack to work with local storage.
 
+Originally, it was for my son's work where he needed to deliver items to every house in our village. He had a paper with a list of house information and after delivering to each house, he had to manually cross out the names and move on to the next house. So, I decided to create an application for his phone to eliminate the need for pen and paper. 
+
 This is the file where the connection to SQLite was established.
 > **app/src/main/java/com/example/saintworkchecklist/data/AppDatabase.java**
 
