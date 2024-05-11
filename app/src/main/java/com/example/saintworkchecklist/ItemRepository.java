@@ -35,6 +35,10 @@ public class ItemRepository {
         new DeleteAsyncTask(itemDao).execute(item);
     }
 
+    public void updateItem(Item item) {
+        new UpdateItemAsyncTask(itemDao).execute(item);
+    }
+
     private static class InsertAsyncTask extends AsyncTask<Item, Void, Void> {
         private ItemDao asyncTaskDao;
 
@@ -48,7 +52,7 @@ public class ItemRepository {
             return null;
         }
     }
-
+    //Asynchronous calls. This implementation needs to be updated because AsyncTask class is now deprecated. https://developer.android.com/reference/android/os/AsyncTask
     private static class DeleteAsyncTask extends AsyncTask<Item, Void, Void> {
         private ItemDao asyncTaskDao;
 
@@ -61,10 +65,6 @@ public class ItemRepository {
             asyncTaskDao.deleteItem(items[0]);
             return null;
         }
-    }
-
-    public void updateItem(Item item) {
-        new UpdateItemAsyncTask(itemDao).execute(item);
     }
 
     private static class UpdateItemAsyncTask extends AsyncTask<Item, Void, Void> {
