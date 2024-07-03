@@ -6,12 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
-
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.saintworkchecklist.R;
 import com.example.saintworkchecklist.viewmodel.ItemViewModel;
 
@@ -26,10 +24,8 @@ public class ListFragment extends  Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
+        
         itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
         itemViewModel.getAllItems().observe(getViewLifecycleOwner(), items -> {
             if (adapter == null) {
@@ -47,7 +43,6 @@ public class ListFragment extends  Fragment {
             public boolean onQueryTextSubmit(String query) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
