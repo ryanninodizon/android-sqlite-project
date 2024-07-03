@@ -2,13 +2,10 @@ package com.example.saintworkchecklist;
 
 import android.app.Application;
 import android.os.AsyncTask;
-
 import androidx.lifecycle.LiveData;
-
 import com.example.saintworkchecklist.data.AppDatabase;
 import com.example.saintworkchecklist.data.Item;
 import com.example.saintworkchecklist.data.ItemDao;
-
 import java.util.List;
 
 public class ItemRepository {
