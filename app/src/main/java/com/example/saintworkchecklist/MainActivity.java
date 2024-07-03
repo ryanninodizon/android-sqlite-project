@@ -1,9 +1,7 @@
 package com.example.saintworkchecklist;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.example.saintworkchecklist.ui.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
