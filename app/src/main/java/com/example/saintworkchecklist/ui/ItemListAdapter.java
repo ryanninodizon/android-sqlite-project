@@ -19,7 +19,6 @@ import com.example.saintworkchecklist.R;
 import com.example.saintworkchecklist.data.CheckedItemsTracker;
 import com.example.saintworkchecklist.data.Item;
 import com.example.saintworkchecklist.viewmodel.ItemViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     private ItemViewModel itemViewModel; // ViewModel reference
 
     private String currentFilterQuery = "";
-
     private RecyclerView recyclerView;
 
     public ItemListAdapter(List<Item> itemList, ItemViewModel itemViewModel, RecyclerView recyclerView) {
@@ -113,13 +111,11 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                         }
                     }
                 }
-
                 FilterResults filterResults = new FilterResults();
                 filterResults.values = filteredList;
 
                 // Store the current filter query
                 currentFilterQuery = searchText;
-
                 return filterResults;
             }
 
@@ -192,7 +188,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         builder.setPositiveButton("Yes", (dialog, which) -> {
             checkedItemsTracker.clear(); // Clear all tracked checkbox states
             notifyDataSetChanged(); // Notify the adapter to update the UI
-
             // Update the database for each item in the list
             for (Item item : itemList) {
                 item.isDone = 0; // Set isDone to 0 (unchecked) for all items
@@ -203,7 +198,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             return;
         });
         builder.show();
-
     }
 
 }
