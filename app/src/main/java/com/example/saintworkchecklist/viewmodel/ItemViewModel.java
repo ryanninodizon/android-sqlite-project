@@ -5,10 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.example.saintworkchecklist.ItemRepository;
 import com.example.saintworkchecklist.data.Item;
-
 import java.util.List;
 
 public class ItemViewModel extends AndroidViewModel {
@@ -21,11 +19,9 @@ public class ItemViewModel extends AndroidViewModel {
         repository = new ItemRepository(application);
         allItems = repository.getAllItems();
     }
-
     public LiveData<List<Item>> getAllItems() {
         return allItems;
     }
-
     public void updateItemStatus(Item item) {
         repository.updateItem(item);
     }
