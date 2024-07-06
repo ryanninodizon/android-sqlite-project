@@ -28,7 +28,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     private List<Item> itemList;
     private List<Item> filteredItemList;
     private ItemViewModel itemViewModel; // ViewModel reference
-
     private String currentFilterQuery = "";
     private RecyclerView recyclerView;
 
@@ -55,7 +54,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         holder.textLastName.setText(item.LastName);
         holder.textStreetName.setText(item.StreetName);
         holder.textStreetNumber.setText(String.valueOf(item.StreetNumber));
-
         // Set the checkbox state based on the item's isDone value
         holder.checkboxDone.setChecked(item.isDone == 1);
 
@@ -154,7 +152,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             confirmationMessage = "Do you want to continue unchecking this";
         }
 
-
         builder.setMessage(confirmationMessage);
         builder.setPositiveButton("Yes", (dialog, which) -> {
             // User confirmed, update the checkbox state
@@ -173,14 +170,12 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             // No need to update the database if the checkbox state is not changed
             return;
         }
-
         // Update the item status in the database
         item.isDone = newCheckedState ? 1 : 0;
         ItemViewModel itemViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(ItemViewModel.class);
         itemViewModel.updateItemStatus(item);
     }
     public void unselectAllItems(ItemViewModel itemViewModel) {
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this.recyclerView.getContext());
         builder.setTitle("Confirmation");
