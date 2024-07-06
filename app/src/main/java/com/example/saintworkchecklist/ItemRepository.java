@@ -17,21 +17,17 @@ public class ItemRepository {
         itemDao = db.itemDao();
         allItems = (LiveData<List<Item>>) itemDao.getAllItems();
     }
-
     public LiveData<List<Item>> getAllItems() {
         return allItems;
     }
-
     public void insertItem(Item item) {
         // Use Kotlin coroutine to perform database operation on a background thread
         new InsertAsyncTask(itemDao).execute(item);
     }
-
     public void deleteItem(Item item) {
         // Use Kotlin coroutine to perform database operation on a background thread
         new DeleteAsyncTask(itemDao).execute(item);
     }
-
     public void updateItem(Item item) {
         new UpdateItemAsyncTask(itemDao).execute(item);
     }
@@ -43,7 +39,6 @@ public class ItemRepository {
         InsertAsyncTask(ItemDao dao) {
             asyncTaskDao = dao;
         }
-
         @Override
         protected Void doInBackground(Item... items) {
             asyncTaskDao.insertItem(items[0]);
@@ -57,7 +52,6 @@ public class ItemRepository {
         DeleteAsyncTask(ItemDao dao) {
             asyncTaskDao = dao;
         }
-
         @Override
         protected Void doInBackground(Item... items) {
             asyncTaskDao.deleteItem(items[0]);
