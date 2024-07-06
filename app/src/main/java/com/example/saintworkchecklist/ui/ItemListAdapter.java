@@ -30,7 +30,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     private ItemViewModel itemViewModel; // ViewModel reference
     private String currentFilterQuery = "";
     private RecyclerView recyclerView;
-
     public ItemListAdapter(List<Item> itemList, ItemViewModel itemViewModel, RecyclerView recyclerView) {
         this.itemList = itemList;
         this.filteredItemList = new ArrayList<>(itemList);
@@ -176,7 +175,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         itemViewModel.updateItemStatus(item);
     }
     public void unselectAllItems(ItemViewModel itemViewModel) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this.recyclerView.getContext());
         builder.setTitle("Confirmation");
         builder.setMessage("Start checking all over again? Kung oo, edi wow!");
